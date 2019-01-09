@@ -1,0 +1,36 @@
+<div>
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Image</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of items">
+      <td>{{item.ID}}</td>
+      <td>{{item.Name}}</td>
+      <td>{{item.Type}}</td>
+      <td><img src="{{item.Image}}" class="img-thumbnail" style="height:100px;" /></td>
+      <td>
+        {{item.quantity}}
+        <button class="btn btn-success btn-xs plus" (click)="add(item.ID)"><i class="glyphicon glyphicon-plus"></i></button>
+        <button class="btn btn-danger btn-xs minus" (click)="del(item.ID)"><i class="glyphicon glyphicon-minus"></i></button>
+      </td>
+      <td>{{item.price}}</td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+      <td>Total Price</td>
+      <td colspan="6" class="text-right">{{total | currency: 'EUR' }}</td>
+    </tr>
+    </tfoot>
+  </table>
+
+
+</div>
